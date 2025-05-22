@@ -52,6 +52,11 @@ composer install
 
 ## ⚙️ Langkah 3: Atur File `.env` Backend
 
+Jika backend blm memiliki file `.env` di folder backend:
+
+```env
+cp env .env
+```
 Edit file `.env` di folder backend:
 
 ```env
@@ -66,6 +71,38 @@ php spark serve
 ```
 
 ---
+## 🔌 Untuk Uji API di Postman
+
+### 📘 Mahasiswa
+- `GET`: `http://localhost:8080/mahasiswa`
+- `POST`: `http://localhost:8080/mahasiswa`
+- `PUT`: `http://localhost:8080/mahasiswa/{npm}`
+- `DELETE`: `http://localhost:8080/mahasiswa/{npm}`
+
+### 📗 Kajur
+- `GET`: `http://localhost:8080/kajur`
+- `POST`: `http://localhost:8080/kajur`
+- `PUT`: `http://localhost:8080/kajur/{id_kajur}`
+- `DELETE`: `http://localhost:8080/delete/{id_kajur}`
+
+### 📙 Cuti
+- `GET`: `http://localhost:8080/cuti`
+- `POST`: `http://localhost:8080/cuti`
+- `PUT`: `http://localhost:8080/cuti/{npm}`
+- `DELETE`: `http://localhost:8080/cuti/{npm}`
+
+### 📒 User
+- `GET`: `http://localhost:8080/user`
+- `POST`: `http://localhost:8080/user`
+- `PUT`: `http://localhost:8080/user/{id_user}`
+- `DELETE`: `http://localhost:8080/user/{id_user}`
+
+### 📕 Admin
+- `GET`: `http://localhost:8080/admin`
+- `POST`: `http://localhost:8080/admin`
+- `PUT`: `http://localhost:8080/admin/{id_admin}`
+- `DELETE`: `http://localhost:8080/admin/{id_admin}`
+
 
 ## 🖥️ Langkah 4: Buat Frontend via Laragon Quick App
 

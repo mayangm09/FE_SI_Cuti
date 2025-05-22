@@ -67,7 +67,7 @@ class userController extends Controller
             // Validasi data
             $request->validate([
                 'password' => 'required|string',
-                'username' => 'required|string',
+                'username' => 'required|string', //diliat tipe datanya ga semua nya string
                 'level' => 'required|string',
             ]);
         

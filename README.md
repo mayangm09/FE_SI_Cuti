@@ -266,8 +266,28 @@ php artisan key:generate
 | `php artisan make:view Nama`          | Membuat view baru                          |
 
 ---
+### Catatan Tambahan - Fungsi Edit
 
-Selamat ngoding dan semangat terus! 💻🔥
+Pada proses edit data, terdapat dua pendekatan tergantung pada format data yang diterima dari response:
+
+- **Jika response berupa object:**  
+  Gunakan pendekatan berikut:
+  ```php
+  if ($matkulResponse->successful()) {
+      $matkul = $matkulResponse->json();
+  }
+  ```
+  Cocok digunakan ketika response dari API mengembalikan data tunggal dalam bentuk object JSON.
+
+- **Jika response berupa array:**  
+  Gunakan pendekatan berikut:
+  ```php
+  if ($matkulResponse->successful() && !empty($matkulResponse[0])) {
+      $matkul = $matkulResponse[0];
+  }
+  ```
+  Pendekatan ini digunakan ketika API mengembalikan array data dan hanya ingin mengambil elemen pertama untuk diedit.
+
 ---
 
 ## 💡 Tips dan Catatan Penting Saat Pengembangan Frontend

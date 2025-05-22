@@ -98,6 +98,7 @@
               <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-md">
                 Simpan
               </button>
+              <a href="{{ route('user.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold px-6 py-2 rounded-md">Batal</a>
             </div>
           </form>
         </div>

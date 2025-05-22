@@ -49,22 +49,19 @@ class userController extends Controller
 
         public function edit($id_user)
         {
-            // dd('Masuk edit'); 
         // Ambil data user berdasarkan ID
         $userResponse = Http::get("http://localhost:8080/user/{$id_user}");
     
-    if ($userResponse->successful()) {
-        $user = $userResponse->json();
-        $user = $user[0] ?? $user;
-
-        return view('edit_user', compact('user'));
-    }
-
-    return redirect()->route('user.index')
-        ->withErrors(['msg' => 'Data user gagal diambil']);
-}
-
+        if ($userResponse->successful()&& !empty($userResponse[0])) {
+        $user = $userResponse[0];
         
+        return view('edit_user', compact('user'));
+         }
+
+        return redirect()->route('user.index')
+        ->withErrors(['msg' => 'Data user gagal diambil']);
+        }
+
         public function update(Request $request, $id_user)
         {
             // Validasi data
@@ -75,10 +72,8 @@ class userController extends Controller
             ]);
         
             // Kirim data ke backend 
-            $response = Http::put("http://localhost:8080/user/{$id_user}", $request->all() 
-                // 'password' => $request->password,
-                // 'username' => $request->username,
-                // 'level' => $request->level,
+            $response = Http::asForm()->put("http://localhost:8080/user/{$id_user}", $request->all() 
+                
             );
         
             // Periksa apakah update berhasil

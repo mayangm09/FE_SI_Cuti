@@ -1,61 +1,282 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Cara Membuat Frontend Laravel Menggunakan Laragon Quick App
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Panduan ini menjelaskan cara membuat project frontend Laravel menggunakan fitur Quick App di Laragon, dimulai dari clone backend via terminal VS Code, import database backend, membuat frontend via Laragon, membuka proyek frontend di VS Code lewat terminal Laragon, hingga menampilkan halaman menggunakan controller dan blade view.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📦 Persiapan
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Pastikan kamu sudah menginstal:
+- Laragon
+- Git
+- Visual Studio Code (VS Code)
+- Composer (biasanya sudah include di Laragon)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🔁 Langkah 1: Clone Backend Lewat VS Code
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. Buka **Visual Studio Code**
+2. Buat folder kerja baru (misalnya: `projekku`)
+   - Klik `File > Open Folder...`
+3. Buka terminal di VS Code (`Ctrl + ``)
+4. Jalankan perintah berikut:
+```bash
+git clone https://github.com/username/backend.git backend
+```
+> Gantilah URL di atas dengan repository backend milikmu
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+5. Masuk ke folder backend:
+```bash
+cd backend
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+6. Install dependency Laravel:
+```bash
+composer install
+```
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🗃️ Langkah 2: Import Database Backend
 
-### Premium Partners
+1. Buka **phpMyAdmin** dari menu Laragon, kemudian klik database
+2. Buat database baru, misalnya:
+   ```
+   backend_db
+   ```
+3. Klik tab **Import**, lalu pilih file `.sql` dari backend-mu
+4. Klik **Go** untuk import
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## ⚙️ Langkah 3: Atur File `.env` Backend
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Edit file `.env` di folder backend:
 
-## Code of Conduct
+```env
+DB_DATABASE=backend_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Jalankan backend:
+```bash
+php spark serve
+```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🖥️ Langkah 4: Buat Frontend via Laragon Quick App
 
-## License
+1. Jalankan **Laragon**
+2. Klik kanan di area kosong Laragon, pilih:
+   ```
+   Quick app > Laravel
+   ```
+3. Masukkan nama proyek frontend, misalnya:
+   ```
+   frontend
+   ```
+4. Laragon akan otomatis:
+   - Membuat folder `frontend` di `C:\laragon\www`
+   - Menginstal Laravel
+   - Membuka CMD otomatis di folder tersebut
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> Tutup CMD yang muncul, karena kita akan buka lewat terminal Laragon
+
+---
+
+## 📂 Langkah 5: Buka Frontend di VS Code via Terminal Laragon
+
+1. Klik `Menu > Terminal` di Laragon untuk buka terminal internal Laragon
+2. Jalankan:
+```bash
+code frontend
+```
+> Ini akan membuka folder frontend langsung di Visual Studio Code
+
+---
+
+## ⚙️ Langkah 6: Atur File `.env` Frontend
+
+Edit file `.env` di proyek frontend (kalau tidak pakai database, kamu bisa lewati bagian DB):
+
+```env
+APP_NAME=LaravelFrontend
+APP_URL=http://localhost:8000
+
+SESSION_DRIVER=file
+```
+
+Lalu jalankan:
+```bash
+composer install
+```
+
+---
+
+## 🧱 Langkah 7: Buat Tampilan Menggunakan Controller
+
+### 7.1 Buat Controller
+```bash
+php artisan make:controller HomeController
+```
+
+### 7.2 Tambahkan Fungsi di Controller
+
+Edit file `app/Http/Controllers/HomeController.php`:
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function index()
+    {
+        return view('home.index');
+    }
+}
+```
+
+### 7.3 Buat Folder dan View
+
+Buat folder dan file untuk view:
+```bash
+php artisan make:view home
+```
+
+Lalu buat file `resources/views/home/index.blade.php` dan isi seperti berikut:
+
+```blade
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Pengelolaan Data</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <div class="flex min-h-screen">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-800 text-gray-100 shadow-lg flex flex-col">
+      <!-- Link ke homepage -->
+      <a href="...." class="p-5 text-2xl font-semibold border-b border-gray-700 hover:bg-gray-700 transition">Home Page</a>
+      <!-- Navigasi sidebar -->
+      <nav class="flex-1 p-5">
+        <ul class="space-y-3">
+         <!-- Navigasi ke halaman Dashboard -->
+         <li>
+        <a href="...." class="flex items-center gap-2 px-4 py-3 rounded-md hover:bg-gray-700 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h7v7H3V3zm0 11h7v7H3v-7zm11-11h7v7h-7V3zm0 11h7v7h-7v-7z" />
+        </svg>
+        Dashboard
+        </a>
+        </li>
+          <!-- Navigasi ke halaman Data Dosen -->
+          <li>
+            <a href="..." class="flex items-center gap-2 px-4 py-3 rounded-md hover:bg-gray-700 transition">
+              <!-- Icon Dosen -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A10.97 10.97 0 0112 15c2.17 0 4.168.646 5.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Data Dosen
+            </a>
+          </li>
+           <!-- Navigasi ke halaman Data Mahasiswa -->
+          <li>
+            <a href="..." class="flex items-center gap-2 px-4 py-3 rounded-md hover:bg-gray-700 transition">
+              <!-- Icon Mahasiswa -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0l-3.5-3.5M12 20l3.5-3.5" />
+              </svg>
+              Data Mahasiswa
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow p-5 flex items-center justify-center border-b border-gray-200">
+        <h1 class="text-gray-800 text-2xl font-semibold tracking-wide">Sistem Pengelolaan Data</h1>
+      </header>
+      <!-- Content -->
+      <main class="p-6">
+        <div class="bg-white p-6 rounded shadow-md">
+          <h2 class="text-xl font-semibold mb-4">Selamat Datang di Sistem Informasi</h2>
+          <p class="text-gray-600">Gunakan menu di samping untuk mengelola data dosen dan mahasiswa.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
+
+```
+
+### 7.4 Ubah Route
+
+Edit file `routes/web.php`:
+
+```php
+use App\Http\Controllers\HomeController;
+
+Route::get('/', [HomeController::class, 'index']);
+```
+
+---
+
+## 🚀 Langkah 8: Jalankan Frontend
+
+Jalankan frontend kamu:
+
+```bash
+php artisan serve
+```
+
+Lalu buka di browser:
+```
+http://127.0.0.1:8000
+```
+jika muncul error tentang enkripsi APP_KEY, jalankan:
+```bash
+php artisan key:generate
+```
+
+
+---
+
+## 📝 Catatan Tambahan
+
+### ✔️ Beberapa Perintah `php artisan make:` yang Berguna
+
+| Perintah                                | Fungsi                                      |
+|----------------------------------------|---------------------------------------------|
+| `php artisan make:controller Nama`     | Membuat controller baru                     |
+| `php artisan make:view Nama`          | Membuat view baru                          |
+
+---
+
+Selamat ngoding dan semangat terus! 💻🔥
+---
+
+## 💡 Tips dan Catatan Penting Saat Pengembangan Frontend
+
+### 1. Salin Desain dengan Hati-hati  
+Saat menyalin desain dari mockup atau referensi, khususnya untuk elemen `<a href="...">`, disarankan untuk sementara menuliskan href sebagai `"..."` sampai semua route terkait benar-benar dibuat dan siap dipakai. Ini membantu mencegah error link rusak atau 404 saat testing awal.
+
+### 2. Validasi Input Saat Menambah Data  
+Jika saat menambahkan data baru ternyata tidak bisa tersimpan (stuck), biasanya ada validasi yang mencegah duplikasi, contohnya kode atau ID yang sudah dipakai sebagai primary key. Pastikan input data menggunakan nilai primary key yang belum ada agar proses tambah data bisa berhasil.
+
+### 3. Cocokkan Penggunaan `asForm()` pada Update Data  
+Kalau saat edit data form bisa terbuka tapi saat submit update tidak terjadi perubahan dan langsung balik ke tabel data, cek kembali penggunaan `asForm()`. Jangan sampai salah pakai `asForm()` kalau backend tidak membutuhkannya, karena ini bisa menyebabkan data gagal terkirim atau proses update gagal. Selalu sesuaikan cara pengiriman data dengan kebutuhan backend agar update berhasil.

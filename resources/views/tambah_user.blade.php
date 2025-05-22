@@ -45,28 +45,6 @@
               Data Ketua Jurusan
             </a>
           </li>
-           <!-- Navigasi ke halaman Data Mahasiswa -->
-          <li>
-            <a href="..." class="flex items-center gap-2 px-4 py-3 rounded-md hover:bg-gray-700 transition">
-              <!-- Icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A10.97 10.97 0 0112 15c2.17 0 4.168.646 5.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              Data Mahasiswa
-            </a>
-          </li>
-           <!-- Navigasi ke halaman Data Cuti -->
-           <li>
-            <a href="..." class="flex items-center gap-2 px-4 py-3 rounded-md hover:bg-gray-700 transition">
-              <!-- Icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0 0l-3.5-3.5M12 20l3.5-3.5" />
-              </svg>
-              Data Cuti
-            </a>
-          </li>
-        </ul>
-      </nav>
     </aside>
     <!-- Main Content -->
     <div class="flex-1 flex flex-col">

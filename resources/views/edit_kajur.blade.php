@@ -49,31 +49,45 @@
     <div class="flex-1 flex items-center justify-center p-10 bg-gray-100">
     <div class="w-full max-w-2xl bg-white p-8 rounded-lg shadow-lg">
       <!-- form edit data user -->
-    <h2 class="text-2xl font-bold mb-6 text-gray-700">Edit Data User</h2>
-    <form action="{{ route('user.update', $user['id_user']) }}" method="POST" class="space-y-5">
+    <h2 class="text-2xl font-bold mb-6 text-gray-700">Edit Data Kajur</h2>
+    <form action="{{ route('kajur.update', $kajur['id_kajur']) }}" method="POST" class="space-y-5">
     @csrf
     @method('PUT')
-      <div>
-        <label class="block mb-1 font-medium text-gray-700">Password</label>
-        <input type="text" name="password" value="{{ $user['password'] }}" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: Budi">
-      </div>
 
-      <div>
-        <label class="block mb-1 font-medium text-gray-700">Username</label>
-        <input type="text" name="username" value="{{ $user['username'] }}" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: 12345678">
-      </div>
+    <div>
+        <label class="block mb-1 font-medium text-gray-700">Nama</label>
+        <input type="text" name="nama_kajur" value="{{ $kajur['nama_kajur'] }}" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: Budi">
+    </div>
 
-      <div>
-        <label class="block mb-1 font-medium text-gray-700">Level</label>
-        <input type="text" name="level" value="{{ $user['level'] }}" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: budi@kampus.ac.id">
-      </div>
-      <div class="pt-4">
+    <div>
+        <label class="block mb-1 font-medium text-gray-700">NIDN</label>
+        <input type="text" name="nidn" value="{{ $kajur['nidn'] }}" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: 12345678">
+    </div>
+
+    <div>
+        <label class="block mb-1 font-medium text-gray-700">Nama Jurusan</label>
+        <input type="text" name="nama_jurusan" value="{{ $kajur['nama_jurusan'] }}" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Contoh: Manajemen">
+    </div>
+
+    <div>
+        <label for="id_user" class="block mb-1 font-medium text-gray-700">Username</label>
+        <select name="id_user" id="id_user" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            <option value="">-- Pilih User --</option>
+            @foreach ($user as $usr)
+                <option value="{{ $usr['id_user'] }}" {{ $kajur['id_user'] == $usr['id_user'] ? 'selected' : '' }}>
+                    {{ $usr['username'] }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="pt-4">
         <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-2 rounded-md">
-          Perbarui
+            Perbarui
         </button>
-        <a href="{{ route('user.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold px-6 py-2 rounded-md">Batal</a>
-      </div>
-    </form>
+        <a href="{{ route('kajur.index') }}" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold px-6 py-2 rounded-md">Batal</a>
+    </div>
+</form>
   </div>
 </div>
 </body>

@@ -63,7 +63,10 @@
         </div>
           <!-- Tombol Tambah Data di kiri atas -->
           <div class="flex justify-between items-center mb-4">
-          <a href="{{ route('user.create') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-md text-sm transition"> + Tambah Data</a>
+          <div class="flex gap-2">
+          <a href="{{ route('user.create') }}"class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-md text-sm transition">+ Tambah Data</a>
+          <a href="{{ route('user.cetak') }}" target="_blank"class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-md text-sm transition">🖨️ Cetak PDF</a>
+          </div>
             <!-- Search Bar, supaya bisa langsung aktif ditambahin id=serchinput --> 
             <div class="relative w-64">
             <input id="searchInput" type="text" placeholder="Cari User..." class="pl-10 pr-4 py-2 w-full border rounded-md focus:outline-none focus:ring focus:ring-indigo-300 text-sm">
@@ -77,7 +80,7 @@
           <table class="min-w-full border border-gray-300 text-sm rounded-md overflow-hidden">
             <thead>
               <tr class="bg-gray-100 text-center text-gray-600">
-                <th class="px-5 py-3 border-b border-gray-300">Kode kelas</th>
+                <th class="px-5 py-3 border-b border-gray-300">ID User</th>
                 <th class="px-5 py-3 border-b border-gray-300">Password</th>
                 <th class="px-5 py-3 border-b border-gray-300">Username</th>
                 <th class="px-5 py-3 border-b border-gray-300">Level</th>

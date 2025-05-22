@@ -337,3 +337,10 @@ Jika saat menambahkan data baru ternyata tidak bisa tersimpan (stuck), biasanya 
 
 ### 3. Cocokkan Penggunaan `asForm()` pada Update Data  
 Kalau saat edit data form bisa terbuka tapi saat submit update tidak terjadi perubahan dan langsung balik ke tabel data, cek kembali penggunaan `asForm()`. Jangan sampai salah pakai `asForm()` kalau backend tidak membutuhkannya, karena ini bisa menyebabkan data gagal terkirim atau proses update gagal. Selalu sesuaikan cara pengiriman data dengan kebutuhan backend agar update berhasil.
+
+### 4. Buat Fitur Cetak
+download 
+````
+composer require barryvdh/laravel-dompdf 
+````
+buat file view cetak, nambah fungsi cetak, dan route di web

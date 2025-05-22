@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Barryvdh\DomPDF\Facade\Pdf;
 class userController extends Controller
 {
     
@@ -93,5 +94,17 @@ class userController extends Controller
             }
     
             return redirect()->route('user.index')->withErrors(['msg' => 'Gagal menghapus user']);
+        }
+
+        public function cetak()
+        {
+            $response = Http::get('http://localhost:8080/matakuliah');
+            if ($response->successful()) {
+                $mata_kuliah = collect($response->json());
+                $pdf = Pdf::loadView('cetak', compact('mata_kuliah')); 
+                return $pdf->download('prodi.pdf');
+            } else {
+                return back()->with('error', 'Gagal mengambil data untuk PDF');
+            }
         }
 }
